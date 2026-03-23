@@ -1,11 +1,11 @@
 const { Client } = require('pg');
 
 const client = new Client({
-    connectionString: 'postgresql://postgres.kpcksbtwysxqqzynycst:BbU6XXccYain6k0a@aws-1-ap-southeast-2.pooler.supabase.com:5432/postgres?sslmode=require',
+    connectionString: process.env.SUPABASE_DB_URL || 'postgresql://<USER>:<PASSWORD>@<HOST>:5432/postgres?sslmode=require',
     ssl: { rejectUnauthorized: false }
 });
 
-const GEMINI_KEY = 'AIzaSyABFxvePrQi_tvnJHXzqh5m-pigscSqLxw';
+const GEMINI_KEY = process.env.GEMINI_API_KEY || 'YOUR_GEMINI_KEY';
 const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${GEMINI_KEY}`;
 
 async function run() {
