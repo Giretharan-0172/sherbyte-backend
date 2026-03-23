@@ -31,3 +31,12 @@ build/
 
 ### VS Code ###
 .vscode/
+
+# Custom ignores
+*.log
+.env
+status*.txt
+mvn_version*.txt
+java_props.txt
+node_modules/
+
